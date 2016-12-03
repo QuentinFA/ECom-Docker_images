@@ -1,8 +1,7 @@
 # GlassFish on Docker
 FROM glassfish/openjdk
 
-# Maintainer
-MAINTAINER Bruno Borges <bruno.borges@oracle.com>
+# Based on : https://github.com/bonelli/tutum-docker-glassfish
 
 # Set environment variables and default password for user 'admin'
 ENV GLASSFISH_PKG=glassfish-4.1.zip \
