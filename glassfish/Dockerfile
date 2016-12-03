@@ -30,7 +30,8 @@ ENV GLASSFISH_PKG=glassfish-4.1.zip \
     wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.40.tar.gz \
     && tar -xzvf mysql-connector-java-5.1.40.tar.gz \
     && cp mysql-connector-java-5.1.40/mysql-connector-java-5.1.40-bin.jar $GLASSFISH_HOME/lib/ && \
-    apk del wget unzip
+    apk del wget unzip && \
+    rm -rf $GLASSFISH_HOME/domains/domain1/osgi-cache/felix/
     
     ADD jackson/* $GLASSFISH_HOME/modules/
     # Ports being exposed
