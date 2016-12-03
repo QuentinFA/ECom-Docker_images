@@ -33,7 +33,7 @@ ENV GLASSFISH_PKG=glassfish-4.1.zip \
     && cp mysql-connector-java-5.1.40/mysql-connector-java-5.1.40-bin.jar $GLASSFISH_HOME/glassfish/lib/ && \
     apk del wget unzip
     
-    ADD jackson/* $GLASSFISH_HOME/glassfish/module/
+    ADD jackson/* $GLASSFISH_HOME/glassfish/modules/
     # Ports being exposed
     EXPOSE 4848 8080 8181
 
