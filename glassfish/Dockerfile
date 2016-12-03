@@ -6,8 +6,8 @@ FROM glassfish/openjdk
 # Set environment variables and default password for user 'admin'
 ENV GLASSFISH_PKG=glassfish-4.1.zip \
     GLASSFISH_URL=http://download.java.net/glassfish/4.1/release/glassfish-4.1.zip \
-    GLASSFISH_HOME=/glassfish4 \
-    PATH=$PATH:/glassfish4/bin \
+    GLASSFISH_HOME=/glassfish4/glassfish \
+    PATH=$PATH:/glassfish4/glassfish/bin \
     PASSWORD=glassfish
 
 # Install packages, download and extract GlassFish
@@ -29,10 +29,10 @@ ENV GLASSFISH_PKG=glassfish-4.1.zip \
     rm /tmp/glassfishpwd && \
     wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.40.tar.gz \
     && tar -xzvf mysql-connector-java-5.1.40.tar.gz \
-    && cp mysql-connector-java-5.1.40/mysql-connector-java-5.1.40-bin.jar $GLASSFISH_HOME/glassfish/lib/ && \
+    && cp mysql-connector-java-5.1.40/mysql-connector-java-5.1.40-bin.jar $GLASSFISH_HOME/lib/ && \
     apk del wget unzip
     
-    COPY jackson/* $GLASSFISH_HOME/glassfish/modules/
+    ADD jackson/* $GLASSFISH_HOME/modules/
     # Ports being exposed
     EXPOSE 4848 8080 8181
 
